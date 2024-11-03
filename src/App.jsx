@@ -22,15 +22,13 @@ const App = () => {
       {/* Main Content Area */}
       <main className="flex-grow">
         {/* Hero Section */}
-        <section
-          className=" my-5 container border d-flex flex-column justify-content-center align-items-center"
-          style={{ height: "20rem" }}
-        >
-          <h1 className="fs-3  text-center"> Welcome to Shree Tech</h1>
-          <h1 className="fs-3 text-center">
+        <section className="hero-section my-5 container d-flex flex-column justify-content-center align-items-center">
+          <h1 className="fs-3">Welcome to Shree Tech</h1>
+          <h1 className="fs-3">
             Innovating your ideas with technology solutions
           </h1>
         </section>
+
         {/* About Us */}
         <section className="py-12 bg-white">
           <AboutUs />

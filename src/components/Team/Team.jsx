@@ -8,6 +8,10 @@ const Team = () => {
     return state.team.teamMember;
   });
 
+  const accessToken = useSelector((state) => {
+    return state.auth.accessToken;
+  });
+
   console.log("here pro", teamMembers);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,35 +20,47 @@ const Team = () => {
       console.log(" we got data  here", data);
     });
   }, [dispatch]);
+
   return (
     <div className="container team-parent">
-      <h2>Our Team</h2>
+      <h1>Our Team</h1>
       <div className="teams  container">
         {teamMembers.length > 0 ? (
           teamMembers.map((element) => {
+            console.log("team dat ", element);
             return (
-              <div class="team border" key={element._id}>
-                {/*  we want image in  circular way  */}
-                {/* <img src="" alt="" /> */}
-                <div class="">
+              <div
+                class="team border d-flex justify-content-between align-items-center"
+                key={element._id}
+              >
+                <div className="">
                   <h4 class="">{element.fname}</h4>
                   <h4 class="">{element.lname}</h4>
                   <p>{element.position}</p>
                   <p>{element.experience}</p>
+                  {accessToken && (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => {
+                        dispatch(
+                          deleteTeamMember({ _id: element._id, navigate })
+                        ).then((data) => {
+                          console.log("team member deleted succesfully ", data);
+                        });
+                      }}
+                    >
+                      {" "}
+                      Delete Team Member
+                    </button>
+                  )}
+                </div>
 
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => {
-                      dispatch(
-                        deleteTeamMember({ _id: element._id, navigate })
-                      ).then((data) => {
-                        console.log("team member deleted succesfully ", data);
-                      });
-                    }}
-                  >
-                    {" "}
-                    Delete Team Member
-                  </button>
+                <div className="team-img">
+                  <img
+                    className="rounded-circle "
+                    src={element.image_url}
+                    alt=""
+                  />
                 </div>
               </div>
             );

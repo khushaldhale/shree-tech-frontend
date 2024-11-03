@@ -89,7 +89,7 @@ const Touch = () => {
 
   return (
     <div className="container mt-5 text-center touch">
-      <h2 className="mb-4">Get in Touch</h2>
+      <h1 className="mb-4">Get in Touch</h1>
       <p className="">
         Have a project in mind or a question for our team? We’d love to hear
         from you! Whether you’re looking for guidance, collaboration, or have
@@ -103,12 +103,12 @@ const Touch = () => {
         className="mx-auto"
         style={{ maxWidth: "600px" }}
       >
-        <div className="mb-3">
+        <div className="mb-3 ">
           <input
             type="text"
             name="fullName"
             placeholder="Full Name"
-            className="form-control"
+            className="form-control fs-3 p-2 "
             onChange={changeHandler}
           />
         </div>
@@ -117,7 +117,7 @@ const Touch = () => {
             type="email"
             name="email"
             placeholder="Email"
-            className="form-control"
+            className="form-control fs-3 p-2 "
             onChange={changeHandler}
           />
         </div>
@@ -126,7 +126,7 @@ const Touch = () => {
             type="number"
             name="number"
             placeholder="Phone Number"
-            className="form-control"
+            className="form-control fs-3 p-2 "
             onChange={changeHandler}
           />
         </div>
@@ -134,13 +134,13 @@ const Touch = () => {
           <textarea
             name="message"
             placeholder="Your Message"
-            className="form-control"
+            className="form-control fs-3 p-2 "
             onChange={changeHandler}
             cols={50}
             rows={6}
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary fs-3">
           Get In Touch
         </button>
       </form>
