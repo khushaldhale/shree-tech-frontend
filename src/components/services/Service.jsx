@@ -8,6 +8,9 @@ const Service = () => {
     return state.service.services;
   });
 
+  const accessToken = useSelector((state) => {
+    return state.auth.accessToken;
+  });
   const isLoading = useSelector((state) => {
     return state.service.isLoading;
   });
@@ -23,7 +26,7 @@ const Service = () => {
       {isLoading && <p> Loading.......</p>}
 
       <div className="">
-        <h2>What We Do ?</h2>
+        <h1>What We Do ?</h1>
       </div>
 
       <div className="services container">
@@ -34,7 +37,16 @@ const Service = () => {
                 <h3>{element.service_name}</h3>
                 <p>{element.service_desc}</p>
 
-                <button className="btn btn-primary">Delete Service</button>
+                {accessToken && (
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      dispatch(deleteService({ _id: element._id, navigate }));
+                    }}
+                  >
+                    Delete Service
+                  </button>
+                )}
               </div>
             );
           })
